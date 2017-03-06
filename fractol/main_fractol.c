@@ -16,6 +16,8 @@ char		*check_fractol(char *str)
 {
 	if (!ft_strcmp(str, "Mandelbrot") || !ft_strcmp(str, "mandelbrot"))
 		return (ft_strdup("mandelbrot"));
+	else if (!ft_strcmp(str, "Julia") || !ft_strcmp(str, "julia"))
+		return (ft_strdup("julia"));
 	else
 		ft_printf("%s: Wrong fractol\n", str);
 	return (NULL);
@@ -25,9 +27,11 @@ void		init_var(t_var *var, char *str)
 {
 	if (!(FRACTOL = check_fractol(str)))
 		return (exit(EXIT_FAILURE));
-	WIDTH_WIN = 800;
-	HEIGHT_WIN = 600;
-	COLOR = RED;
+	WIDTH_WIN = 500;
+	HEIGHT_WIN = 300;
+	ZOOM = 100;
+	var->color_tab = create_color();
+	COLOR = WHITE;
 	MLX = mlx_init();
 	WIN = mlx_new_window(MLX, WIDTH_WIN, HEIGHT_WIN, FRACTOL);
 	IMG = mlx_new_image(MLX, WIDTH_WIN, HEIGHT_WIN);

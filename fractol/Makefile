@@ -12,7 +12,7 @@
 
 NAME = fractol
 
-SRC = main_fractol.c mandelbrot.c luncher.c events.c
+SRC = main_fractol.c mandelbrot.c luncher.c events.c color.c julia.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -39,7 +39,6 @@ clean:
 
 fclean: clean
 	@make -C libft fclean
-	@make -C minilibx_macos fclean
 	rm -f $(NAME)
 
 re: fclean all

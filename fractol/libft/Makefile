@@ -49,7 +49,6 @@ clean:
 	@rm -rf $(O_DIR)
 
 fclean: clean
-	@rm $(NAME)
-	
-re: fclean all
+	@rm -f $(NAME)
 
+re: fclean all

@@ -47,9 +47,14 @@ void		mandelbrot(t_var *var)
 				ZI = 2 * ZI * tmp + CI;
 			}
 			if (i == I_MAX)
-				put_pixel(var, BLACK);
+			{
+				if (COLOR)
+					put_pixel(var, BLACK);
+				else
+					put_pixel(var, WHITE);
+			}
 			else
-				put_pixel(var, i * COLOR / I_MAX);
+				put_pixel(var, i * COLOR);
 		}
 	}
 }

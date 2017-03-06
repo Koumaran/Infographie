@@ -42,6 +42,8 @@ int		lunch_fractol(t_var *var)
 {
 	if (!ft_strcmp(FRACTOL, "mandelbrot"))
 		mandelbrot(var);
+	if (!ft_strcmp(FRACTOL, "julia"))
+		julia(var);
 	mlx_put_image_to_window(MLX, WIN, IMG, 0, 0);
 	return (0);
 }

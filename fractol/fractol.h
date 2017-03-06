@@ -80,12 +80,16 @@ typedef struct		s_var
 	double			zi;
 	double			zoom_x;
 	double			zoom_y;
+	int				*color_tab;
 	int				color;
 	int				play;
 }					t_var;
 
+int					*create_color();
+void 				get_color(int *color_tab, int *color, char sign);
 int					lunch_fractol(t_var *var);
 void				mandelbrot(t_var *var);
+void  			julia(t_var *var);
 void				put_pixel(t_var *var, int color);
 int					ft_keyhook(int keycode, t_var *var);
 

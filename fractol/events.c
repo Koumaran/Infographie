@@ -36,5 +36,15 @@ int				ft_keyhook(int keycode, t_var *var)
 		add_helper();
 	if (keycode == SPACE)
 		PLAY = (PLAY) ? 0 : 1;
+	if (keycode == CROCHET_F)
+		get_color(var->color_tab, &COLOR, '+');
+	if (keycode == CROCHET_O)
+		get_color(var->color_tab, &COLOR, '-');
+	ZOOM = (keycode == PADPLUS) ? ZOOM + 20 : ZOOM;
+	ZOOM = (keycode == PADLESS) ? ZOOM - 20 : ZOOM;
+	X1 = (keycode == LEFT) ? X1 - 0.01 : X1;
+	X1 = (keycode == RIGTH) ? X1 + 0.01 : X1;
+	Y1 = (keycode == DOWN) ? Y1 + 0.01 : Y1;
+	Y1 = (keycode == UP) ? Y1 - 0.01 : Y1;
 	return (0);
 }

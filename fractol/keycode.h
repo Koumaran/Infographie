@@ -24,5 +24,21 @@
 # define LESS 78
 # define HELP 4
 # define SPACE 49
+# define CROCHET_F 30
+# define CROCHET_O 33
+# define ALPHA0 29
+# define ALPHA1 18
+# define ALPHA2 19
+# define ALPHA3 20
+# define ALPHA4 21
+# define ALPHA5 23
+# define ALPHA6 22
+# define ALPHA7 26
+# define ALPHA8 28
+# define ALPHA9 25
+# define ALPHA_ 27
+# define ALPHAEGAL 24
+# define PADPLUS 69
+# define PADLESS 78
 
 #endif
