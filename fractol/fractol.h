@@ -6,7 +6,7 @@
 /*   By: jsivanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 13:40:33 by jsivanes          #+#    #+#             */
-/*   Updated: 2016/12/31 19:31:37 by jsivanes         ###   ########.fr       */
+/*   Updated: 2017/03/14 18:26:07 by jsivanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "ft_printf.h"
 # include "mlx.h"
 # include "keycode.h"
+# include <math.h>
+# include <pthread.h>
+# include <OpenCL/opencl.h>
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
@@ -38,6 +41,7 @@
 # define HEIGHT_WIN var->height_win
 # define FRACTOL var->fractol
 # define I_MAX var->iteration_max
+# define I var->i
 # define X var->x
 # define X1 var->x1
 # define X2 var->x2
@@ -52,7 +56,16 @@
 # define COLOR var->color
 # define ZOOM_X var->zoom_x
 # define ZOOM_Y var->zoom_y
+# define M_COLOR var->m_color
+# define TMP_D var->tmp_d
+# define V var->v
+# define POS_X var->pos_x
+# define POS_Y var->pos_y
 # define PLAY var->play
+# define IM var->im
+# define NX var->nx
+# define NY var->ny
+# define TRIANGLE var->triangle
 
 typedef struct		s_var
 {
@@ -67,12 +80,17 @@ typedef struct		s_var
 	int				height_win;
 	char			*fractol;
 	int				iteration_max;
+	int				im;
+	int				i;
 	int				x;
+	double			pos_x;
 	double			x1;
 	double			x2;
 	int				y;
+	double			pos_y;
 	double			y1;
 	double			y2;
+	double			tmp_d;
 	double			zoom;
 	double			cr;
 	double			ci;
@@ -80,17 +98,27 @@ typedef struct		s_var
 	double			zi;
 	double			zoom_x;
 	double			zoom_y;
-	int				*color_tab;
+	double			nx;
+	double			ny;
+	double			v;
+	int				m_color;
 	int				color;
 	int				play;
+	int				triangle;
 }					t_var;
 
-int					*create_color();
-void 				get_color(int *color_tab, int *color, char sign);
+char				*get_color_name(int color);
 int					lunch_fractol(t_var *var);
-void				mandelbrot(t_var *var);
-void  			julia(t_var *var);
+void				ft_mandelbrot(t_var *var);
+void				ft_julia(t_var *var);
+void				ft_buddhabrot(t_var *var);
+void				ft_burningship(t_var *var);
+void				ft_sierpinski(t_var *var);
 void				put_pixel(t_var *var, int color);
 int					ft_keyhook(int keycode, t_var *var);
-
+int					ft_mousehook(int button, int x, int y, t_var *var);
+int					ft_motion_mousehook(int x, int y, t_var *var);
+void				ft_reset_fract(t_var *var);
+void				init_window(t_var *var);
+void				exit_fractol(t_var *var);
 #endif

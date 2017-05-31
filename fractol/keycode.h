@@ -38,7 +38,15 @@
 # define ALPHA9 25
 # define ALPHA_ 27
 # define ALPHAEGAL 24
+# define TOUCH_M 46
+# define TOUCH_DEL 51
 # define PADPLUS 69
 # define PADLESS 78
+# define PAD_1 83
+# define PAD_2 84
+# define PAD_3 85
+# define PAD_4 86
+# define PAD_5 87
+# define PAD_6 88
 
 #endif

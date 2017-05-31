@@ -12,7 +12,8 @@
 
 NAME = fractol
 
-SRC = main_fractol.c mandelbrot.c luncher.c events.c color.c julia.c
+SRC = main_fractol.c mandelbrot.c luncher.c events.c julia.c buddhabrot.c \
+			burningship.c sierpinski.c
 
 OBJ = $(SRC:.c=.o)
 
